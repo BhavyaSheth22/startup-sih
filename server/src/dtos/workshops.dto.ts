@@ -8,6 +8,7 @@ export class CreateWorkshopDto {
   public links: string;
   public contact: string;
   public organiser: string;
+  public image: string;
 
   @IsDate()
   public date: Date;

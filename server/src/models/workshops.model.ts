@@ -31,6 +31,10 @@ const workshopSchema: Schema = new Schema({
     type: String,
     required: false,
   },
+  image: {
+    type: String,
+    required: false,
+  },
 });
 
 const userModel = model<Workshop & Document>('Workshop', workshopSchema);

@@ -8,4 +8,5 @@ export interface Workshop {
   date: Date;
   fees: number;
   contact: string;
+  image: string;
 }
