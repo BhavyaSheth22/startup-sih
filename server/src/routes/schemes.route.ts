@@ -15,7 +15,6 @@ class SchemesRoute implements Routes {
 
   private initializeRoutes() {
     this.router.get(`${this.path}`, this.usersController.getSchemes);
-    this.router.get(`${this.path}/:id`, this.usersController.getSchemeById);
     this.router.post(`${this.path}`, validationMiddleware(CreateSchemeDto, 'body'), this.usersController.createScheme);
   }
 }
