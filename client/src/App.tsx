@@ -13,9 +13,10 @@ function App() {
 	const Create = lazy(() => import("./pages/Create"));
 	const Profile = lazy(() => import("./pages/Profile"));
 	const VideoCall = lazy(() => import("./pages/VideoCall"));
-	const Details= lazy(() => import("./pages/Details"));
-	const Workshop= lazy(() => import("./pages/exploreWorkshops"));
-	const Scheme= lazy(() => import("./pages/exploreSchemes"));
+	const Chat = lazy(() => import("./pages/Chat"));
+	const Details = lazy(() => import("./pages/Details"));
+	const Workshop = lazy(() => import("./pages/exploreWorkshops"));
+	const Scheme = lazy(() => import("./pages/exploreSchemes"));
 
 	return (
 		<Router>
@@ -31,9 +32,10 @@ function App() {
 					<Route path="/followers" element={<Followers />} />
 					<Route path="/create" element={<Create />} />
 					<Route path="/videoCall" element={<VideoCall />} />
-					<Route path="/details" element={<Details/>} />
-					<Route path="/workshops" element={<Workshop/>} />
-					<Route path="/schemes" element={<Scheme/>} />
+					<Route path="/chat" element={<Chat />} />
+					<Route path="/details" element={<Details />} />
+					<Route path="/workshops" element={<Workshop />} />
+					<Route path="/schemes" element={<Scheme />} />
 				</Routes>
 			</Suspense>
 		</Router>
