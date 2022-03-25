@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const workshopSchema = new Schema({
-    name: {
+    title: {
       type: String,
       required: true,
       unique: true,
@@ -28,6 +28,10 @@ const workshopSchema = new Schema({
       required: true,
     },
     contact: {
+      type: String,
+      required: false,
+    },
+    imgpath: {
       type: String,
       required: false,
     },
