@@ -1,6 +1,6 @@
 import { Grid,Heading, VStack, StackDivider } from "@chakra-ui/react";
 import RightSidebar from "../components/RightSidebar";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar.js";
 import Card from "../components/SchemesCard";
 import { useEffect } from "react";
 import {schemes} from "./schemes";
