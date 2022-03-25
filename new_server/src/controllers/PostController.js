@@ -23,7 +23,7 @@ exports.getAllPosts = async (req, res, next) => {
         console.log(category);
 
         const response = await axios.post(
-          "https://b3d4-2405-204-287-dba-7975-4dc3-4c21-bf35.ngrok.io",
+          "http://b3d4-2405-204-287-dba-7975-4dc3-4c21-bf35.ngrok.io/predict",
           {
             user_id:req.body.userId,
             postCategory:category
@@ -34,6 +34,7 @@ exports.getAllPosts = async (req, res, next) => {
             }
           }
         );
+        console.log(response);
        
         await Post.findAndUpdate({
           $push: { displayRank:response}
