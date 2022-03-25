@@ -65,7 +65,7 @@ const Home = ({ isAuthenticated, setIsAuthenticated }) => {
   ];
   return (
     <>
-      <section className="text-gray-700 body-font lg:mx-10 sm:mx-2">
+      <section className="text-gray-700 body-font lg:mx-16 sm:mx-2">
         <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
             <img
@@ -105,6 +105,17 @@ const Home = ({ isAuthenticated, setIsAuthenticated }) => {
                       isSignIn={true}
                       className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
                       userType={"company"}
+                    />
+                  </div>
+                }
+                   {
+                  !isAuthenticated &&
+                  <div className="rounded-md shadow">
+                    <Auth
+                      setIsAuthenticated={setIsAuthenticated}
+                      isSignIn={true}
+                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+                      userType={"incubator"}
                     />
                   </div>
                 }

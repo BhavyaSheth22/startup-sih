@@ -5,6 +5,7 @@ import RightSidebar from "../components/RightSidebar";
 import Feed from "../components/Feed";
 import LeftSidebar from "../components/LeftSidebar";
 import JitsiComponent from "../components/JitsiComponent";
+import ChatComponent from "../components/ChatComponent";
 
 const YourPosts = () => {
 	const user = localStorage.getItem("user");
@@ -21,6 +22,7 @@ const YourPosts = () => {
 				marginRight="1rem"
 			>
 				<JitsiComponent user={user} />
+				{/* <ChatComponent /> */}
 			</Grid>
 		</div>
 	);
