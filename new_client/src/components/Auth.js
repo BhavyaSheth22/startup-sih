@@ -69,7 +69,7 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn, userType }) => {
 		<div className="bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 modal">
 			<h2 className="text-gray-900 text-lg font-medium title-font mb-5">
 				{signIn ? "Sign In" : "Register"} As A{" "}
-				{userType == "company" ? "Company" : "User"}
+				{userType == "company" ? "Company" :  (userType=="user"?"User":"Incubator")}
 			</h2>
 			{!signIn && <Input label="Full Name" name="name" setter={setName} />}
 			<Input label="Email" type="email" setter={setEmail} />
@@ -102,7 +102,7 @@ const Auth = ({
 		<Popup
 			Button={
 				<button className={className}>
-					LogIn As A {userType == "company" ? "Company" : "User"}
+					Explore Role of {userType == "company" ? "Company" : (userType=="user"? "User":"Incubator")}
 				</button>
 			}
 			Modal={AuthModal}

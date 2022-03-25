@@ -8,8 +8,8 @@ const workshopSchema = new Schema({
       unique: true,
     },
     organizer: {
-      type: String,
-      required: true,
+      type: Schema.Types.ObjectId,
+      ref: "user"
     },
     description: {
       type: String,
