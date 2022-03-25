@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.modal {
+  max-height: calc(100vh - 90px);
+  overflow-y: auto;
+}
