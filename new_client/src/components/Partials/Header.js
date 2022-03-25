@@ -59,7 +59,7 @@ const Header = ({ isAuthenticated, setIsAuthenticated }) => {
                   isAuthenticated &&
                   <>
                     <Link to="/UserCrowdFunding" className="font-medium text-indigo-600 hover:text-indigo-500">
-                      View CrowdFunding Posts
+                      View Feed
                     </Link>
                   </>
                 }
@@ -67,7 +67,7 @@ const Header = ({ isAuthenticated, setIsAuthenticated }) => {
                   isAuthenticated && userType === 'company' &&
                   <>
                     <Link to="/CrowdFunding" className="font-medium text-indigo-600 hover:text-indigo-500">
-                      Create CrowdFunding Post
+                      Submit Business Pitch
                     </Link>
                   </>
                 }

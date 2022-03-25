@@ -16,8 +16,6 @@ const commentSchema= new mongoose.Schema({
     }
 })
 
-
-
 const postSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -40,7 +38,7 @@ const postSchema = new mongoose.Schema({
     }
 });
 
-const commentModel = mongoose.model('Comment', commentSchema);
-const postModel = mongoose.model('Post', postSchema);
+const Comment = mongoose.model('Comment', commentSchema);
+const Post = mongoose.model('Post', postSchema);
 
-module.exports = [commentModel, postModel]
+module.exports={Post, Comment};

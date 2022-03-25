@@ -1,5 +1,5 @@
 const UserController = require("./controllers/UserController");
-const OrganizationController = require("./controllers/OrganizationController");
+const WorkshopController = require("./controllers/WorkshopController");
 const PostController = require('./controllers/PostController')
 const SchemeController = require('./controllers/SchemeController')
 const CommentController = require('./controllers/CommentController')
@@ -24,18 +24,22 @@ module.exports = (app) => {
   app
     .route('/api/posts')
     .post(auth.loginRequired, PostController.createPost)
-    .get(auth.loginRequired, PostController.getAllPosts)
+    .get(PostController.getAllPosts)
   
-  // app
-  //   .route("/api/comments")
-  //   .post(auth.loginRequired, CommentController.addComment)
-  //   .get(äuth.loginRequired, CommentController.getComments)
+  app
+    .route("/api/comments")
+    .post(CommentController.addComment)
+    // .get(äuth.loginRequired, CommentController.getComments)
   
-  // app
-  //   .route("/api/comments/posts/:id")
-  //   .get(auth.loginRequired, CommentController.getCommentsOnPost)
-
+  app
+    .route("/api/comments/:id")
+    .get(CommentController.getCommentsOfPost)
 
   app.get("/api/schemes", SchemeController.getSchemes);
+
+  app
+    .route("/api/workshops")
+    .get(WorkshopController.getAllWorkshops)
+    .post(WorkshopController.createWorkshop)
  
 };
