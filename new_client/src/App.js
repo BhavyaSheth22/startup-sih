@@ -9,6 +9,7 @@ import { isLoggedIn } from "./utils/jwtUtil";
 import Header from "./components/Partials/Header";
 import Footer from "./components/Partials/Footer";
 import Loader from "./components/Loader/Loader";
+import CompanyProfile from "./pages/CompanyProfile";
 const Home = React.lazy(() => import("./pages/Home"));
 const CreateCrowdfunding = React.lazy(() =>
 	import("./pages/CreateCrowdfunding")
@@ -67,6 +68,13 @@ const App = () => {
 							exact
 							element={
 								isAuthenticated ? <CreateCampaign /> : <Navigate to="/" />
+							}
+						/>
+						<Route
+							path="/companyProfile"
+							exact
+							element={
+								isAuthenticated ? <CompanyProfile /> : <Navigate to="/" />
 							}
 						/>
 						<Route
