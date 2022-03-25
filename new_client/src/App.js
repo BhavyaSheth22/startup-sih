@@ -24,6 +24,7 @@ const VideoCall = React.lazy(() => import("./pages/VideoCall"));
 const Details= React.lazy(() => import("./pages/Details"));
 const Workshop= React.lazy(() => import("./pages/exploreWorkshops"));
 const Scheme= React.lazy(() => import("./pages/exploreSchemes"));
+const Investors = React.lazy(() => import("./pages/FindInvestors"));
 
 const Token = React.lazy(() => import("./pages/Token"));
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
@@ -101,6 +102,7 @@ const App = () => {
 						<Route path="/videoCall" element={<VideoCall />} />
 						<Route path="/details" element={<Details/>} />
 						<Route path="/workshops" element={<Workshop/>} />
+						<Route path="/investors" element={<Investors/>} />
 						<Route
 							path="/UserCrowdfunding"
 							exact
