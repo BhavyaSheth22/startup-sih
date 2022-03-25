@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import Api, { responseErrorHandler } from "../utils/Api/Api";
 import { toast } from "react-toastify";
@@ -6,13 +6,33 @@ import validator from "validator";
 import Popup from "./Popup/Popup";
 import Input from "./Input";
 import Radio from "./Radio";
+import { COMETCHAT_CONSTANTS } from "../consts";
+import axios from "axios";
+import web3 from "./web3";
+import contract from "./contract";
+
 const AuthModal = ({ setIsAuthenticated, close, isSignIn, userType }) => {
 	const [signIn, setSignIn] = useState(isSignIn);
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [description, setDescription] = useState("");
-	
+
+	const createUser = async (uid, name) => {
+		const res = await axios.post(
+			`https://${COMETCHAT_CONSTANTS.APP_ID}.api-${COMETCHAT_CONSTANTS.REGION}.cometchat.io/v3/users`,
+			{ uid, name },
+			{
+				headers: {
+					apiKey: "83461e32095a6a5805fd84a5bafbbe8d6d9571b9",
+					"Content-Type": "application/json",
+					Accept: "application/json",
+				},
+			}
+		);
+		console.log(res);
+	};
+
 	const submit = async () => {
 		if (!validator.isEmail(email)) {
 			return toast.error("Invalid Email Address");
@@ -35,14 +55,14 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn, userType }) => {
 						password,
 						name,
 						description,
-						userType
+						userType,
 				  })
 				: await Api.auth.signUp({
 						email,
 						password,
 						name,
 						description,
-						userType		
+						userType,
 				  });
 			toast.update(toastElement, {
 				render: signIn
@@ -52,11 +72,23 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn, userType }) => {
 				isLoading: false,
 				autoClose: true,
 			});
-			const { token } = response.data;
-			const { user } = response.data;
-			console.log(user);
+			const { token, data } = response.data;
+			if (!signIn) {
+				console.log(token, data);
+				createUser(data.userID, data.userName);
+			}
+			console.log(data);
+			const accounts = await web3.eth.getAccounts();
+			console.log(accounts);
+			const res = await contract.methods
+				.createDao(name, description, data.userID)
+				.send({
+					from: accounts[0],
+				});
+			// const res = await contract.methods;
+			console.log(res);
 			localStorage.setItem("token", token);
-			localStorage.setItem("user", JSON.stringify(user));
+			localStorage.setItem("user", JSON.stringify(data));
 			setIsAuthenticated(true);
 			localStorage.setItem("userType", userType);
 			return close();
@@ -73,7 +105,9 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn, userType }) => {
 			</h2>
 			{!signIn && <Input label="Full Name" name="name" setter={setName} />}
 			<Input label="Email" type="email" setter={setEmail} />
-			{!signIn && <Input label="Description" name="description" setter={setDescription} />}
+			{!signIn && (
+				<Input label="Description" name="description" setter={setDescription} />
+			)}
 			<Input label="Password" type="password" setter={setPassword} />
 			<button
 				onClick={submit}
