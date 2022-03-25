@@ -48,10 +48,10 @@ const App = () => {
 		<Router>
 				<div className="App" style={{ background: "white" }}>
 			
-				{/* <Header
+				<Header
 					isAuthenticated={isAuthenticated}
 					setIsAuthenticated={setIsAuthenticated}
-				/> */}
+				/>
 		
 				<Suspense fallback={<Loader />}>
 					<Routes>
