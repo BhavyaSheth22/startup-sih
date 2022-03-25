@@ -1,10 +1,14 @@
-import React from "react";
-import { Flex, Heading, Avatar, IconButton, Image } from "@chakra-ui/react";
+import React,{useState} from "react";
+import { Flex, Heading, Avatar, IconButton, Image, Button } from "@chakra-ui/react";
 import { BiDotsVerticalRounded, BiCommentDetail } from "react-icons/bi";
 import { BsHeart, BsBookmark } from "react-icons/bs";
 import { MdOutlineReportProblem } from "react-icons/md";
 
 const Post = (props) => {
+  const [text,setText] = useState("");
+  const addComment = ()=>{
+    
+  }
   return (
     <Flex
       flexDirection="column"
@@ -78,6 +82,14 @@ const Post = (props) => {
       >
         View all comments
       </Heading>
+      <Button
+        mt={1}
+              w={'full'}
+              colorScheme="purple"
+              rounded={'xl'}
+              boxShadow={'0 5px 20px 0px rgb(72 187 120 / 43%)'}
+              onClick={()=>{ addComment()}}
+      >Add Comment</Button>
     </Flex>
   );
 };
