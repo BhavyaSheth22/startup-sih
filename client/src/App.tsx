@@ -13,6 +13,7 @@ function App() {
 	const Create = lazy(() => import("./pages/Create"));
 	const Profile = lazy(() => import("./pages/Profile"));
 	const VideoCall = lazy(() => import("./pages/VideoCall"));
+	const Chat = lazy(() => import("./pages/Chat"));
 	return (
 		<Router>
 			<Suspense fallback={<Loader />}>
@@ -27,6 +28,7 @@ function App() {
 					<Route path="/followers" element={<Followers />} />
 					<Route path="/create" element={<Create />} />
 					<Route path="/videoCall" element={<VideoCall />} />
+					<Route path="/chat" element={<Chat />} />
 				</Routes>
 			</Suspense>
 		</Router>
