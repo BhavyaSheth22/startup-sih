@@ -10,7 +10,7 @@ import ChatComponent from "../components/ChatComponent";
 const YourPosts = () => {
 	const user = localStorage.getItem("user");
 	useEffect(() => {
-		document.title = "OnlyUwU - YourPosts";
+		document.title = "Bharatpreneur - YourPosts";
 	}, []);
 	return (
 		<div>

@@ -10,7 +10,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
 const navigation = [
   { name: 'Home', href: '/' },
- 
+  { name: 'Feed', href: '/feed' }
 ]
 
 const Header = ({ isAuthenticated, setIsAuthenticated }) => {

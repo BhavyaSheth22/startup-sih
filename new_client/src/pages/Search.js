@@ -7,7 +7,7 @@ import LeftSidebar from "../components/LeftSidebar";
 
 const Search = () => {
   useEffect(() => {
-    document.title = "OnlyUwU - Search results";
+    document.title = "Bharatpreneur - Search results";
   }, []);
   return (
     <div>

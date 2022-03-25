@@ -4,7 +4,7 @@ import { BiDotsVerticalRounded, BiCommentDetail } from "react-icons/bi";
 import { BsHeart, BsBookmark } from "react-icons/bs";
 import { MdOutlineReportProblem } from "react-icons/md";
 
-const Post = () => {
+const Post = (props) => {
   return (
     <Flex
       flexDirection="column"
@@ -24,11 +24,11 @@ const Post = () => {
           gap="0.2rem"
         >
           <Heading as="h3" size="md">
-            Varun
+            {props.title}
           </Heading>
-          <Heading as="h4" size="sm" color="gray.600">
-            2 hours ago
-          </Heading>
+          {/* <Heading as="h4" size="sm" color="gray.600">
+            {props.title}
+          </Heading> */}
         </Flex>
         <IconButton
           icon={<BiDotsVerticalRounded size="1.6rem" />}
@@ -37,33 +37,30 @@ const Post = () => {
       </Flex>
       <Image src="/catboi.jpeg" alt="" borderRadius="lg" />
       <Heading as="h5" size="sm">
-        I am dumb piece of shit help god lets gooooo I am dumb piece of shit
-        help god lets gooooo I am dumb piece of shit help god lets gooooo I am
-        dumb piece of shit help god lets gooooo I am dumb piece of shit help god
-        lets gooooo
+        {props.text}
       </Heading>
       <Flex alignItems="center" justifyContent="space-between">
         <Flex gap="1.3rem">
-          <Flex alignItems="center" gap="0.4rem">
+          {/* <Flex alignItems="center" gap="0.4rem">
             <IconButton aria-label="Like" isRound={true}>
               <BsHeart size="1.5rem" cursor="pointer" />
             </IconButton>
             <Heading as="h5" size="sm" color="gray.600">
               0
             </Heading>
-          </Flex>
+          </Flex> */}
           <Flex alignItems="center" gap="0.4rem">
             <IconButton aria-label="Comment" isRound={true}>
               <BiCommentDetail size="1.5rem" cursor="pointer" />
             </IconButton>
             <Heading as="h5" size="sm" color="gray.600">
-              0
+              {props.comments.length}
             </Heading>
           </Flex>
           <Flex alignItems="center" gap="0.4rem">
-          <IconButton aria-label="Comment" isRound={true}>
+          {/* <IconButton aria-label="Comment" isRound={true}>
             <MdOutlineReportProblem size="1.5rem" cursor="pointer" />
-            </IconButton>
+            </IconButton> */}
           </Flex>
         </Flex>
         <IconButton aria-label="Comment" isRound={true}>
@@ -84,5 +81,32 @@ const Post = () => {
     </Flex>
   );
 };
+
+// const commentModal = (props) => {
+//   const { isOpen, onOpen, onClose } = useDisclosure()
+//   return (
+//     <>
+//       <Button onClick={onOpen}>Open Modal</Button>
+
+//       <Modal isOpen={isOpen} onClose={onClose}>
+//         <ModalOverlay />
+//         <ModalContent>
+//           <ModalHeader>Modal Title</ModalHeader>
+//           <ModalCloseButton />
+//           <ModalBody>
+//             <Lorem count={2} />
+//           </ModalBody>
+
+//           <ModalFooter>
+//             <Button colorScheme='blue' mr={3} onClick={onClose}>
+//               Close
+//             </Button>
+//             <Button variant='ghost'>Secondary Action</Button>
+//           </ModalFooter>
+//         </ModalContent>
+//       </Modal>
+//     </>
+//   ) 
+// }
 
 export default Post;

@@ -18,7 +18,7 @@ import { AiOutlineFire } from "react-icons/ai";
 
 const LoginNavbar = () => {
   useEffect(() => {
-    document.title = "OnlyUwU - Login";
+    document.title = "Bharatpreneur - Login";
   }, []);
   const { colorMode, toggleColorMode } = useColorMode();
   const toast = useToast();
@@ -38,7 +38,7 @@ const LoginNavbar = () => {
           size="xl"
           fontFamily="Sansita Swashed"
         >
-          OnlyUwU
+          Bharatpreneur
         </Heading>
       </Flex>
       <Tooltip label="Search shit" openDelay={400}>

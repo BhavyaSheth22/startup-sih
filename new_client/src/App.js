@@ -95,8 +95,7 @@ const App = () => {
 								isAuthenticated ? <CreateCrowdfunding /> : <Navigate to="/" />
 							}
 						/>
-									<Route path="/feed" element={<Feed />} />
-		
+						<Route path="/feed" element={<Feed />} />
 						<Route path="/profile/:uuid" element={<Profile />} />
 						<Route path="/create" element={<Create />} />
 						<Route path="/videoCall" element={<VideoCall />} />

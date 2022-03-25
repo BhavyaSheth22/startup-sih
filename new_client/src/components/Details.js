@@ -6,7 +6,7 @@ import React, { useEffect } from "react";
 
 const Profile = () => {
     useEffect(() => {
-      document.title = "OnlyUwU - Idiot";
+      document.title = "Bharatpreneur - Idiot";
     }, []);
     return (
       <div>

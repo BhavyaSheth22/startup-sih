@@ -24,7 +24,7 @@ const RightSidebar = () => {
       height="max-content"
       flexDirection="column"
     >
-      <Tooltip label="Creator of this shit" openDelay={300}>
+      {/* <Tooltip label="Creator of this shit" openDelay={300}>
         <Flex
           className="profilestuff"
           cursor="pointer"
@@ -45,7 +45,7 @@ const RightSidebar = () => {
             <Text>@painman</Text>
           </Flex>
         </Flex>
-      </Tooltip>
+      </Tooltip> */}
       <Flex
         borderRadius="1rem"
         boxShadow="md"

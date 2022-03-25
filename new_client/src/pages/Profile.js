@@ -7,7 +7,7 @@ import ProfileSidebar from "../components/ProfileSidebar";
 
 const Profile = () => {
   useEffect(() => {
-    document.title = "OnlyUwU - Idiot";
+    document.title = "Bharatpreneur - Idiot";
   }, []);
   return (
     <div>

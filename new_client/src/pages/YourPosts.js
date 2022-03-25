@@ -7,7 +7,7 @@ import LeftSidebar from "../components/LeftSidebar";
 
 const YourPosts = () => {
   useEffect(() => {
-    document.title = "OnlyUwU - YourPosts";
+    document.title = "Bharatpreneur - YourPosts";
   }, []);
   return (
     <div>
