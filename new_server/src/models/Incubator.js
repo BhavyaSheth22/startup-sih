@@ -14,6 +14,11 @@ const incubator = new mongoose.Schema({
     lowercase: true,
     validate: validator.isEmail
   },
+  password: {
+    type: String,
+    required: true,
+    select: false
+  },
   workshops: {
     type: [
       {

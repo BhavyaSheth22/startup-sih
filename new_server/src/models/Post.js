@@ -25,6 +25,12 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    category: {
+        type: String
+    },
+    displayRank:{
+        type:Number
+    },
     comments: [{
         type: Schema.Types.ObjectId,
         ref: 'Comment'

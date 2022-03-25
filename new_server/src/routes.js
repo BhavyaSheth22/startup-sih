@@ -12,7 +12,11 @@ module.exports = (app) => {
   });
 
   app.post("/api/user/register", UserController.registerUser);
-  app.post("/api/user/login", UserController.loginUser);
+  app.post("/api/incubator/register", UserController.registerIncubator);
+  app.post("/api/company/register", UserController.registerCompany);
+  app.post("/api/user/register", UserController.registerUser);
+  
+  app.post("/api/login", UserController.loginUser);
   // app.post("/api/org/register", OrganizationController.registerOrganization);
   // app.post("/api/org/login", OrganizationController.loginOrganization);
 
