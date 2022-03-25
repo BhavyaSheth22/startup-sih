@@ -2,8 +2,13 @@ const {Post} = require("../models/Post");
 
 exports.createPost = async (req, res, next) => {
     try {
-      const postData = req.body;
-      const createPostData = await Post.create({ ...postData })
+      const {title,image,text,userId} = req.body;
+      const createPostData = await Post.create({
+        title,
+        text,
+        photoUrl:image,
+        poster: userId
+      })
 
       res.status(201).json({ data: createPostData, message: 'created' });
     } catch (error) {
