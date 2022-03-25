@@ -44,7 +44,7 @@ const Navbar = () => {
   const [search, setSearch] = useState("");
   const [isMobile] = useMediaQuery("(max-width: 768px)");
   const starOnGithub = () => {
-    window.location.href = "https://github.com/VarunLanjhara/OnlyUwU";
+    window.location.href = "https://github.com/VarunLanjhara/Bharatpreneur";
   };
   return (
     <Flex
@@ -62,7 +62,7 @@ const Navbar = () => {
           size={isMobile ? "sm" : "xl"}
           fontFamily="Sansita Swashed"
         >
-          OnlyUwU
+          Bharatpreneur
         </Heading>
       </Flex>
       <form

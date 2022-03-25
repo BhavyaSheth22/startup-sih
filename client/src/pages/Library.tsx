@@ -7,7 +7,7 @@ import LeftSidebar from "../components/LeftSidebar";
 
 const Library = () => {
   useEffect(() => {
-    document.title = "OnlyUwU - Library";
+    document.title = "Bharatpreneur - Library";
   }, []);
   return (
     <div>

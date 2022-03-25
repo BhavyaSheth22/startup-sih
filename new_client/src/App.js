@@ -47,10 +47,10 @@ const App = () => {
 		<Router>
 				<div className="App" style={{ background: "white" }}>
 			
-				{/* <Header
+				<Header
 					isAuthenticated={isAuthenticated}
 					setIsAuthenticated={setIsAuthenticated}
-				/> */}
+				/>
 		
 				<Suspense fallback={<Loader />}>
 					<Routes>
@@ -87,8 +87,7 @@ const App = () => {
 								isAuthenticated ? <CreateCrowdfunding /> : <Navigate to="/" />
 							}
 						/>
-									<Route path="/feed" element={<Feed />} />
-		
+						<Route path="/feed" element={<Feed />} />
 						<Route path="/profile/:uuid" element={<Profile />} />
 						<Route path="/create" element={<Create />} />
 						<Route path="/videoCall" element={<VideoCall />} />

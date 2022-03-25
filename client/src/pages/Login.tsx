@@ -28,7 +28,7 @@ const Login = () => {
               Make fwends with
             </Heading>
             <Heading as="h4" size="xl">
-              OnlyUwU
+              Bharatpreneur
             </Heading>
           </Flex>
           <Tooltip label="Lets gooo bitch" openDelay={400}>

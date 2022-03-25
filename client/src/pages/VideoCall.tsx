@@ -9,7 +9,7 @@ import JitsiComponent from "../components/JitsiComponent";
 const YourPosts = () => {
 	const user = localStorage.getItem("user");
 	useEffect(() => {
-		document.title = "OnlyUwU - YourPosts";
+		document.title = "Bharatpreneur - YourPosts";
 	}, []);
 	return (
 		<div>
