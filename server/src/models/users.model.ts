@@ -1,7 +1,7 @@
 import { model, Schema, Document } from 'mongoose';
 import { User } from '@interfaces/users.interface';
 
-const userSchema: Schema = new Schema({
+export const userSchema: Schema = new Schema({
   email: {
     type: String,
     required: true,
@@ -11,8 +11,12 @@ const userSchema: Schema = new Schema({
     type: String,
     required: true,
   },
+  posts: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Post'
+  }]
 });
 
-const userModel = model<User & Document>('User', userSchema);
+const userModel = model<User>('User', userSchema);
 
 export default userModel;
