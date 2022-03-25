@@ -23,7 +23,8 @@ class JitsiComponent extends Component {
 		this.state = {
 			room: this.uuidv4(),
 			user: {
-				name: this.props.user.name,
+				// name: this.props.user.name,
+				name: "Adi",
 			},
 			isAudioMuted: false,
 			isVideoMuted: false,

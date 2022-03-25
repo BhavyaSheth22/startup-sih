@@ -9,6 +9,7 @@ import { isLoggedIn } from "./utils/jwtUtil";
 import Header from "./components/Partials/Header";
 import Footer from "./components/Partials/Footer";
 import Loader from "./components/Loader/Loader";
+import CompanyProfile from "./pages/CompanyProfile";
 const Home = React.lazy(() => import("./pages/Home"));
 const CreateCrowdfunding = React.lazy(() =>
 	import("./pages/CreateCrowdfunding")
@@ -27,7 +28,7 @@ const Scheme= React.lazy(() => import("./pages/exploreSchemes"));
 const Token = React.lazy(() => import("./pages/Token"));
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 const Assistance = React.lazy(() => import("./pages/Assistance"));
-const NFT = React.lazy(() => import("./pages/NFT"));
+
 const Analytics = React.lazy(() => import("./pages/Analytics"));
 
 const App = () => {
@@ -47,10 +48,10 @@ const App = () => {
 		<Router>
 				<div className="App" style={{ background: "white" }}>
 			
-				{/* <Header
+				<Header
 					isAuthenticated={isAuthenticated}
 					setIsAuthenticated={setIsAuthenticated}
-				/> */}
+				/>
 		
 				<Suspense fallback={<Loader />}>
 					<Routes>
@@ -81,14 +82,20 @@ const App = () => {
 							}
 						/>
 						<Route
+							path="/companyProfile"
+							exact
+							element={
+								isAuthenticated ? <CompanyProfile /> : <Navigate to="/" />
+							}
+						/>
+						<Route
 							path="/Crowdfunding"
 							exact
 							element={
 								isAuthenticated ? <CreateCrowdfunding /> : <Navigate to="/" />
 							}
 						/>
-									<Route path="/feed" element={<Feed />} />
-		
+						<Route path="/feed" element={<Feed />} />
 						<Route path="/profile/:uuid" element={<Profile />} />
 						<Route path="/create" element={<Create />} />
 						<Route path="/videoCall" element={<VideoCall />} />
@@ -105,10 +112,7 @@ const App = () => {
 							path="/Crowdfunding/:tokenID"
 							element={isAuthenticated ? <Token /> : <Navigate to="/" />}
 						/>
-						<Route
-							path="/nft/:nftId"
-							element={isAuthenticated ? <NFT /> : <Navigate to="/" />}
-						/>
+					
 						<Route
 							path="/assistance"
 							element={isAuthenticated ? <Assistance /> : <Navigate to="/" />}

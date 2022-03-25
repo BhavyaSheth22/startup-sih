@@ -44,7 +44,7 @@ const Navbar = () => {
   const [search, setSearch] = useState("");
   const [isMobile] = useMediaQuery("(max-width: 768px)");
   const starOnGithub = () => {
-    window.location.href = "https://github.com/VarunLanjhara/OnlyUwU";
+    window.location.href = "https://github.com/VarunLanjhara/Bharatpreneur";
   };
   return (
     <Flex
@@ -62,17 +62,17 @@ const Navbar = () => {
           size={isMobile ? "sm" : "xl"}
           fontFamily="Sansita Swashed"
         >
-          OnlyUwU
+          Bharatpreneur
         </Heading>
       </Flex>
       <form
-        onSubmit={(e: React.FormEvent) => {
+        onSubmit={(e) => {
           e.preventDefault();
           setSearch("");
           navigate("/search/" + search);
         }}
       >
-        <Tooltip label="Search shit" openDelay={400}>
+        <Tooltip label="Search" openDelay={400}>
           <InputGroup mx={isMobile ? 2 : 8} width={isMobile ? "40vw" : "50vw"}>
             <InputLeftElement
               pointerEvents="none"
@@ -80,9 +80,9 @@ const Navbar = () => {
             />
             <Input
               type="text"
-              placeholder="Search shit ..."
+              placeholder="Search..."
               variant="filled"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              onChange={(e) => {
                 setSearch(e.target.value);
               }}
               value={search}

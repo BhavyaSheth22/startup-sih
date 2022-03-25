@@ -10,7 +10,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
 const navigation = [
   { name: 'Home', href: '/' },
- 
+  { name: 'Feed', href: '/feed' }
 ]
 
 const Header = ({ isAuthenticated, setIsAuthenticated }) => {
@@ -72,15 +72,15 @@ const Header = ({ isAuthenticated, setIsAuthenticated }) => {
                   </>
                 }
                 {
-                  isAuthenticated && userType === 'company' &&
+                  isAuthenticated  &&
                   <>
-                    <Link to="/createCampaign" className="font-medium text-indigo-600 hover:text-indigo-500">
+                    <Link to="/createpOST" className="font-medium text-indigo-600 hover:text-indigo-500">
                       Create a Campaign
                     </Link>
                   </>
                 }
                 {
-                  isAuthenticated && userType === 'user' &&
+                  isAuthenticated &&
                   <>
                     <Link to="/campaign" className="font-medium text-indigo-600 hover:text-indigo-500">
                      View ongoing Campaigns
@@ -88,7 +88,7 @@ const Header = ({ isAuthenticated, setIsAuthenticated }) => {
                   </>
                 }
                    {
-                  isAuthenticated && userType === 'company' &&
+                  isAuthenticated  &&
                   <>
                     <Link to="/analytics" className="font-medium text-indigo-600 hover:text-indigo-500">
                       Analytics
@@ -96,7 +96,7 @@ const Header = ({ isAuthenticated, setIsAuthenticated }) => {
                   </>
                 }
                 {
-                  isAuthenticated && userType === 'user' &&
+                  isAuthenticated  &&
                   <>
                     <Link to="/Assistance" className="font-medium text-indigo-600 hover:text-indigo-500">
                       Assistance

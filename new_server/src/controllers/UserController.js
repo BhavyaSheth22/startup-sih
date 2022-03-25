@@ -15,12 +15,13 @@ exports.registerUser = async (req, res) => {
         error: "user with this ID or email already exists"
       });
     }
-    const { name, email, description, password} = req.body;  
+    const { name, email, description, password, role} = req.body;  
     const newuser = await User.create({
       name,
       email,
       description,
-      password
+      password,
+      role
     });
     const token = auth.signToken(newuser._id);
 
@@ -28,7 +29,7 @@ exports.registerUser = async (req, res) => {
       status: "success",
       token,
       data: {
-        userID: newuser._id
+        user: newuser._id, username: newuser.name
       }
     });
   } catch (e) {
@@ -52,7 +53,7 @@ exports.loginUser = async (req, res) => {
       status: "success",
       token,
       data: {
-        userID: user._id
+        userID: user._id, username: newuser.name
       }
     });
   } catch (e) {

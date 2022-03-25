@@ -8,7 +8,7 @@ const Footer = () => {
 						src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
 						alt="Workflow"
 					/>
-					<span className="ml-3 text-xl">SpreadASmile</span>
+					<span className="ml-3 text-xl">Bharatpreneur</span>
 				</div>
 				<p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
 					© SpeadASmile
