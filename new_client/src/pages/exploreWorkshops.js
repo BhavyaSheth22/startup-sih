@@ -60,7 +60,7 @@ const Workshop = () => {
         templateColumns='repeat(3, 1fr)' gap={3}
         >
             {workshops.map((workshop)=>(
-            <Card id={workshop._id} title={workshop.title} description={workshop.description} organizer={workshop.organizer} theme={workshop.theme}  contact={workshop.contact} imgpath={workshop.imgpath}/>
+            <Card id={workshop._id} title={workshop.title} links={workshop.links} description={workshop.description} organizer={workshop.organizer} theme={workshop.theme}  contact={workshop.contact} imgpath={workshop.imgpath}/>
         ))}
         </Grid>
         </VStack>

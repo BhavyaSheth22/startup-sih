@@ -1,10 +1,13 @@
 const Workshop = require("../models/Workshop");
+const { uuid } = require('uuidv4');
 
 exports.createWorkshop = async (req, res, next) => {
     try {
       const workshopData = req.body;
       console.log(req.body);
       const createWorkshopData = await Workshop.create({ ...workshopData })
+      createWorkshopData.links = uuid();
+      await createWorkshopData.save();
 
       res.status(201).json({ data: createWorkshopData, message: 'created' });
     } catch (error) {

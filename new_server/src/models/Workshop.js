@@ -5,7 +5,6 @@ const workshopSchema = new Schema({
     title: {
       type: String,
       required: true,
-      unique: true,
     },
     organizer: {
       type: Schema.Types.ObjectId,

@@ -14,22 +14,20 @@ import { getUserId } from "../utils/jwtUtil";
 
 const CreateComponent2 = () => {
   const [title, setTitle] = useState("");
-  const [organizer, setOrganizer] = useState("");
+ 
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
   const [theme, setTheme] = useState("");
   const [contact, setContact] = useState("");
   const [imgpath, setImgpath] = useState("");
-  const userId = getUserId();
+  const organizer= getUserId();
   // const toast = useToast();
 
   const createWorkshop = async()=>{
     if (title.length < 3) {
 			return toast.error("Invalid Title");
 		}
-		if (organizer.length < 3) {
-			return toast.error("Invalid organizer");
-		}
+	
 
     if (description.length < 3) {
 			return toast.error("Invalid description");
@@ -78,28 +76,8 @@ const CreateComponent2 = () => {
           }}
           value={title}
         />
-        {title.length >= 5 && title.length <= 100 ? (
-          ""
-        ) : (
-          <Heading as="h4" size="sm" color="gray.500">
-            Title must be between 5 to 100 letters
-          </Heading>
-        )}
-        <Input
-          variant="filled"
-          placeholder="Organisation"
-          onChange={(e) => {
-            setOrganizer(e.target.value);
-          }}
-          value={organizer}
-        />
-        {organizer.length >= 5 && organizer.length <= 100 ? (
-          ""
-        ) : (
-          <Heading as="h4" size="sm" color="gray.500">
-          description must be between 5 to 100 letters
-          </Heading>
-        )}
+      
+      
       </Flex>
       <Flex flexDirection="column" gap="0.4rem" width="100%">
       <Input
