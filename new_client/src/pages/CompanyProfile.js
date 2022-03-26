@@ -46,9 +46,15 @@ const AddProject = () => {
 export default function CompanyProfile() {
   return (
     <div class="max-w-screen-xl mx-auto p-8">
-    <h2 class="text-3xl font-extrabold leading-9 border-b-2 border-gray-100 text-gray-900 mb-12">
+        <ul class="flex items-start gap-8 flex-wrap">
+        <li class="w-3/5"><h2 class="text-3xl font-extrabold leading-9 border-b-2 border-gray-100 text-gray-900 mb-12">
         Company Name
-    </h2>
+    </h2></li>
+    <li class="w-1/5">
+    <button className={"text-white bg-indigo-600 border-0 py-2 px-10 focus:outline-none hover:bg-indigo-700 rounded text-lg"}
+    onClick={()=>{window.open('https://www.startupindia.gov.in')}}>
+					Create a Workshop
+				</button></li></ul>
     <ul class="flex items-start gap-8 flex-wrap">
         <li class="w-3/5">
             <p class="text-lg font-medium leading-6 text-gray-900">
