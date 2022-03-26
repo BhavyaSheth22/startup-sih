@@ -5,7 +5,6 @@ const workshopSchema = new Schema({
     title: {
       type: String,
       required: true,
-      unique: true,
     },
     organizer: {
       type: Schema.Types.ObjectId,
@@ -15,17 +14,19 @@ const workshopSchema = new Schema({
       type: String,
       required: true,
     },
+    date: {
+      type: String,
+      required: true,
+    },
     theme: {
       type: String,
       required: true,
     },
     links: {
-      type: String,
-      required: true,
+      type: String
     },
     fees: {
-      type: String,
-      required: true,
+      type: String
     },
     contact: {
       type: String,
@@ -38,3 +39,4 @@ const workshopSchema = new Schema({
   });
   
   const Workshop = mongoose.model('Workshop', workshopSchema);
+  module.exports = Workshop;
