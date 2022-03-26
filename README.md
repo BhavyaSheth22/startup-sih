@@ -23,19 +23,16 @@ To develop a one stop platform for budding entrepreneurs for Overall Support. Fo
 2. React
 3. Express.js
 4. MongoDB
-5. Framework-1
-6. Framework-2 (Add or remove as required)
+5. Flask
+6. Jitsi
+7. CometChat
 
 ## Project Setup
 > For client, npm install and npm start
 > For server, npm install and npm run dev
 
-## Applications
-> 
-
 ## Future scope
 > Blockchain Based DAO
-> 
 
 ## Screenshots
 Add a few screenshots for parts of the project completed till now to give the viewer a quick idea of what your project looks like. After all, a picture speaks a thousand words.
