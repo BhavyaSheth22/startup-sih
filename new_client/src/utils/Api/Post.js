@@ -10,7 +10,9 @@ const PostsApi = {
 	},
 	addComment : (text,userId,postId)=>{
 		return axios.post(`/comments`,{
-			text,userId,postId	
+			text,
+			user: userId,
+			post: postId	
 		})
 	}
 };

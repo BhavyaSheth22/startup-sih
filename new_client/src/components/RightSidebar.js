@@ -139,7 +139,7 @@ const RightSidebar = () => {
                 colorMode === "light" ? "#cfcfcf57" : "#27272983",
             }}
             onClick={() => {
-              navigate("/explore");
+              navigate("/feed");
             }}
           >
             <MdExplore
@@ -162,7 +162,7 @@ const RightSidebar = () => {
             gap="1rem"
             backgroundColor={colorMode === "light" ? "#cfcfcf57" : "#27272983"}
             onClick={() => {
-              navigate("/library");
+              navigate("/feed");
             }}
           >
             <MdPhotoLibrary
@@ -187,7 +187,7 @@ const RightSidebar = () => {
                 colorMode === "light" ? "#cfcfcf57" : "#27272983",
             }}
             onClick={() => {
-              navigate("/library");
+              navigate("/feed");
             }}
           >
             <MdPhotoLibrary
@@ -210,7 +210,7 @@ const RightSidebar = () => {
             gap="1rem"
             backgroundColor={colorMode === "light" ? "#cfcfcf57" : "#27272983"}
             onClick={() => {
-              navigate("/your_posts");
+              navigate("/feed");
             }}
           >
             <IoMdImages
@@ -235,7 +235,7 @@ const RightSidebar = () => {
                 colorMode === "light" ? "#cfcfcf57" : "#27272983",
             }}
             onClick={() => {
-              navigate("/your_posts");
+              navigate("/feed");
             }}
           >
             <IoMdImages
@@ -258,7 +258,7 @@ const RightSidebar = () => {
             gap="1rem"
             backgroundColor={colorMode === "light" ? "#cfcfcf57" : "#27272983"}
             onClick={() => {
-              navigate("/followers");
+              navigate("/feed");
             }}
           >
             <RiUserFollowFill
@@ -283,7 +283,7 @@ const RightSidebar = () => {
                 colorMode === "light" ? "#cfcfcf57" : "#27272983",
             }}
             onClick={() => {
-              navigate("/followers");
+              navigate("/feed");
             }}
           >
             <RiUserFollowFill
