@@ -20,7 +20,7 @@ exports.createPost = async (req, res, next) => {
 exports.getAllPosts = async (req, res, next) => {
     try{
 
-        const posts = await Post.find().populate('comments').populate('poster');
+        const posts = await Post.find().populate({ path: 'comments' , populate:{ path: 'user' }}).populate('poster').exec();
         console.log(posts);
         let category=[];
         for (let i = 0; i < posts.length; i++) {
