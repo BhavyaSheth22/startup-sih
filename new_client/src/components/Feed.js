@@ -49,7 +49,7 @@ const Feed = (props) => {
       </Flex>
       {
         posts.map((post) => {
-          return (<Post title={post.title} text={post.text} poster={post.poster} comments={post.comments} key={post._id}/>)
+          return (<Post title={post.title} text={post.text} poster={post.poster} comments={post.comments} post_id={post._id} key={post._id}/>)
         })
       }
     </Flex>

@@ -2,8 +2,14 @@ const {Post} = require("../models/Post");
 const axios = require("axios");
 exports.createPost = async (req, res, next) => {
     try {
-      const postData = req.body;
-      const createPostData = await Post.create({ ...postData })
+      const {title,image,text,userId} = req.body;
+      console.log(req.body);
+      const createPostData = await Post.create({
+        title,
+        text,
+        photoUrl:image,
+        poster: userId
+      })
 
       res.status(201).json({ data: createPostData, message: 'created' });
     } catch (error) {
@@ -14,7 +20,7 @@ exports.createPost = async (req, res, next) => {
 exports.getAllPosts = async (req, res) => {
     try{
 
-        const posts = await Post.find().populate('comments').populate('poster');
+        const posts = await Post.find().populate({ path: 'comments' , populate:{ path: 'user' }}).populate('poster').exec();
         console.log(posts);
         let category=[];
         for (let i = 0; i < posts.length; i++) {

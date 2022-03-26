@@ -4,25 +4,17 @@ const PostsApi = {
 	getAllPosts: () => {
 		return axios.get(`/posts`);
 	},
-	// getParticular: ({ orgId }) => {
-	// 	return axios.get(`/org/crowdfunding` + `${orgId}`);
-	// },
-	// makeTransaction: ({ amount, postId, orgId, userId, paymentId }) => {
-	// 	console.log("API called");
-	// 	return axios.post(`/user/donate`, {
-	// 		amount,
-	// 		postId,
-	// 		orgId,
-	// 		userId,
-	// 		paymentId,
-	// 	});
-	// },
-	// transactions: ({ orgId }) => {
-	// 	return axios.get(`/transactions/${orgId}`);
-	// },
-	// getNFT: (nftId) => {
-	// 	return axios.get(`/nft/${nftId}`);
-	// },
+	createPost : (title,text,image,userId)=>{
+		console.log(title);
+		return axios.post(`/posts`, title)
+	},
+	addComment : (text,userId,postId)=>{
+		return axios.post(`/comments`,{
+			text,
+			user: userId,
+			post: postId	
+		})
+	}
 };
 
 export default PostsApi;

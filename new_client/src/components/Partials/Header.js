@@ -55,7 +55,7 @@ const Header = ({ isAuthenticated, setIsAuthenticated }) => {
                     {item.name}
                   </Link>
                 ))}
-                {
+                {/* {
                   isAuthenticated &&
                   <>
                     <Link to="/UserCrowdFunding" className="font-medium text-indigo-600 hover:text-indigo-500">
@@ -102,7 +102,7 @@ const Header = ({ isAuthenticated, setIsAuthenticated }) => {
                       Assistance
                     </Link>
                   </>
-                }
+                } */}
                 {
                   isAuthenticated &&
                   <Link

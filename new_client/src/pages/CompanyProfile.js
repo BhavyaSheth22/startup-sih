@@ -1,55 +1,8 @@
-import { useState } from "react";
 import React from "react";
-import Api, { responseErrorHandler } from "../utils/Api/Api";
-import { toast } from "react-toastify";
-import validator from "validator";
 import Popup from "../components/Popup/Popup";
-import Input from "../components/Input";
-import Radio from "../components/Radio";
-
-const InvestModal = (close) => {
-	const [price, setPrice] = useState(0);
-	const [equityPercentage, setEquityPercentage] = useState("");
-	
-	const submit = async () => {
-		if (price < 1) {
-			return toast.error("Enter an amount");
-		}
-		if (equityPercentage <= 0) {
-			return toast.error("You should be giving some equity :(");
-		}
-		if (equityPercentage >= 100) {
-			return toast.error("100% equity??? Do you want to sell yah company???");
-		}
-		const toastElement = toast.loading(
-			"Investing"
-		);
-		try {
-			toast.update(toastElement, {
-				render: "Invested Successfully",
-				type: "success",
-				isLoading: false,
-				autoClose: true,
-			});
-			return close();
-		} catch (error) {
-			responseErrorHandler(error, toastElement);
-		}
-	};
-
-	return (
-		<div className="bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 modal">
-			<Input label="Price" type="text" setter={setPrice} />
-			<Input label="Equity Percentage" type="text" setter={setEquityPercentage} />
-			<button
-				onClick={submit}
-				className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-			>
-				Invest
-			</button>
-		</div>
-	);
-};
+import InvestModal from "../components/InvestModal";
+import GiveEquityModal from "../components/GiveEquityModal";
+import AddProjectModal from "../components/AddProjectModal";
 
 const Invest = () => {
 	return (
@@ -64,55 +17,11 @@ const Invest = () => {
 	);
 };
 
-const GiveEquityModal = (close) => {
-	const [equityPercentage, setEquityPercentage] = useState("");
-    const [priceForOnePercent, setPriceForOnePercent] = useState(0);
-	
-	const submit = async () => {
-		if (priceForOnePercent < 1) {
-			return toast.error("Enter an amount");
-		}
-		if (equityPercentage <= 0) {
-			return toast.error("You should be having some equity :(");
-		}
-		if (equityPercentage >= 100) {
-			return toast.error("You cannot get 100% equity of the company");
-		}
-		const toastElement = toast.loading(
-			"Submitting Offer"
-		);
-		try {
-			toast.update(toastElement, {
-				render: "Equity Offer Published Successfully",
-				type: "success",
-				isLoading: false,
-				autoClose: true,
-			});
-			return close();
-		} catch (error) {
-			responseErrorHandler(error, toastElement);
-		}
-	};
-
-	return (
-		<div className="bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 modal">
-			<Input label="Precentage of Equity to offer" type="text" setter={setEquityPercentage} />
-			<Input label="Price for 1% equity" type="text" setter={setPriceForOnePercent} />
-			<button
-				onClick={submit}
-				className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-			>
-				Give Equity
-			</button>
-		</div>
-	);
-};
-
 const GiveEquity = () => {
 	return (
 		<Popup
 			Button={
-				<button className={"text-white bg-indigo-600 border-0 py-2 px-20 focus:outline-none hover:bg-indigo-700 rounded text-lg"}>
+				<button className={"text-white bg-indigo-600 mb-5 border-0 py-2 px-10 focus:outline-none hover:bg-indigo-700 rounded text-lg"}>
 					Give Equity
 				</button>
 			}
@@ -121,75 +30,11 @@ const GiveEquity = () => {
 	);
 };
 
-const AddProjectModal = (close) => {
-	const [projectName, setProjectName] = useState("");
-    const [desc, setDesc] = useState("");
-    const [polls, setPolls] = useState([]);
-    const [option, setOption] = useState("");
-	
-	const submit = async () => {
-		if (projectName.length == 0) {
-			return toast.error("Please enter a project name");
-		}
-		if (desc.length == 0) {
-			return toast.error("Please add some description");
-		}
-		if (polls.length == 0) {
-			return toast.error("Please add some options for poll");
-		}
-		const toastElement = toast.loading(
-			"Creating Project"
-		);
-		try {
-			toast.update(toastElement, {
-				render: "Invested Successfully",
-				type: "success",
-				isLoading: false,
-				autoClose: true,
-			});
-			return close();
-		} catch (error) {
-			responseErrorHandler(error, toastElement);
-		}
-	};
-
-    const addPollOption = async () => {
-        await setPolls(polls => [...polls,option]);
-        setOption('');
-    }
-
-	return (
-		<div className="bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 modal">
-			<Input label="Project Name" type="text" setter={setProjectName} />
-            <Input label="Description" type="text" setter={setDesc} />
-            <Input label="Add Option" type="text" setter={setOption} />
-            <button 
-            className="text-white bg-indigo-600 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-700 rounded text-lg"
-            onClick={addPollOption}>
-                Add Option
-            </button>  
-            <br/>
-            <ol>
-                {polls.map(poll => (
-                    <li className="inline-flex mr-2 items-center justify-center px-2 py-1 text-xs font-bold leading-none text-indigo-100 bg-indigo-700 rounded">{poll}</li>
-                ))}
-            </ol>
-            <br/>
-			<button
-				onClick={submit}
-				className="text-white bg-indigo-600 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-700 rounded text-lg"
-			>
-				Add Project
-			</button>
-		</div>
-	);
-};
-
 const AddProject = () => {
 	return (
 		<Popup
 			Button={
-				<button className={"text-white bg-indigo-600 border-0 py-2 px-20 focus:outline-none hover:bg-indigo-700 rounded text-lg"}>
+				<button className={"text-white bg-indigo-600 border-0 py-2 px-10 focus:outline-none hover:bg-indigo-700 rounded text-lg"}>
 					Add Project
 				</button>
 			}
@@ -201,9 +46,15 @@ const AddProject = () => {
 export default function CompanyProfile() {
   return (
     <div class="max-w-screen-xl mx-auto p-8">
-    <h2 class="text-3xl font-extrabold leading-9 border-b-2 border-gray-100 text-gray-900 mb-12">
+        <ul class="flex items-start gap-8 flex-wrap">
+        <li class="w-3/5"><h2 class="text-3xl font-extrabold leading-9 border-b-2 border-gray-100 text-gray-900 mb-12">
         Company Name
-    </h2>
+    </h2></li>
+    <li class="w-1/5">
+    <button className={"text-white bg-indigo-600 border-0 py-2 px-10 focus:outline-none hover:bg-indigo-700 rounded text-lg"}
+    onClick={()=>{window.open('https://www.startupindia.gov.in')}}>
+					Create a Workshop
+				</button></li></ul>
     <ul class="flex items-start gap-8 flex-wrap">
         <li class="w-3/5">
             <p class="text-lg font-medium leading-6 text-gray-900">
@@ -225,7 +76,7 @@ export default function CompanyProfile() {
             </p>
         </li>
         <li class="w-1/5">
-            <div class="text-center mb-4 opacity-90">
+            <div class="text-center mb-2 opacity-90">
                 <a href="#" class="block relative">
                     <img alt="profil" src="https://bit.ly/3IFW1Cf" class="mx-auto object-cover rounded-lg h-60 w-60 "/>
                 </a>

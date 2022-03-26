@@ -27,7 +27,7 @@ module.exports = (app) => {
 
   app
     .route('/api/posts')
-    .post(auth.loginRequired, PostController.createPost)
+    .post(PostController.createPost)
     .get(PostController.getAllPosts)
   
   app
