@@ -28,15 +28,16 @@ const postSchema = new mongoose.Schema({
     category: {
         type: String
     },
-    displayRank:{
-        type:Number
-    },
     comments: [{
         type: Schema.Types.ObjectId,
         ref: 'Comment'
     }],
     photoUrl: {
         type: String
+    },
+    displayRank:{
+        type: String,
+        default:"0"
     },
     poster: {
         type: Schema.Types.ObjectId,
