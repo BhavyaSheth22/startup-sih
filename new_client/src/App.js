@@ -19,6 +19,7 @@ const Campaign = React.lazy(() => import("./pages/Campaign"));
 const CreateCampaign = React.lazy(() => import("./pages/CreateCampaign"));
 const Feed = React.lazy(() => import("./pages/Homepage"));
 const Create = React.lazy(() => import("./pages/Create"));
+const CreateWorkshop = React.lazy(() => import("./pages/CreateWorkshop"));
 const Profile = React.lazy(() => import("./pages/Profile"));
 const VideoCall = React.lazy(() => import("./pages/VideoCall"));
 const Details= React.lazy(() => import("./pages/Details"));
@@ -99,6 +100,7 @@ const App = () => {
 						<Route path="/feed" element={<Feed />} />
 						<Route path="/profile/:uuid" element={<Profile />} />
 						<Route path="/create" element={<Create />} />
+						<Route path="/createWorkshop" element={<CreateWorkshop />} />
 						<Route path="/videoCall" element={<VideoCall />} />
 						<Route path="/details" element={<Details/>} />
 						<Route path="/workshops" element={<Workshop/>} />

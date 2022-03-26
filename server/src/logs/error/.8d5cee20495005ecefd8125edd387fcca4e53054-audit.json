@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "D:\\Disha\\web_development\\startup-sih\\server\\src\\logs\\error\\.8d5cee20495005ecefd8125edd387fcca4e53054-audit.json",
+    "files": [
+        {
+            "date": 1648199286796,
+            "name": "D:\\Disha\\web_development\\startup-sih\\server\\src\\logs\\error\\2022-03-25.log",
+            "hash": "b8785c20c1543b4c6ee54779beefe0e8"
+        },
+        {
+            "date": 1648235519107,
+            "name": "D:\\Disha\\web_development\\startup-sih\\server\\src\\logs\\error\\2022-03-26.log",
+            "hash": "df7f11f09a090652cc17a7d68199a19e"
+        }
+    ],
+    "hashType": "md5"
+}

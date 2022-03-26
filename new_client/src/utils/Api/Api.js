@@ -3,6 +3,7 @@ import AuthApi from "./Auth.js";
 import AssistanceApi from "./Assistance.js";
 import CrowdfundingApi from "./Crowdfunding.js";
 import CampaignApi from "./Campaign.js";
+import WorkshopApi from "./Workshop.js";
 import { toast } from "react-toastify";
 import PostsApi from "./Post.js";
 
@@ -13,6 +14,7 @@ const Api = {
   crowdfunding: CrowdfundingApi,
   campaign: CampaignApi,
   post: PostsApi,
+  workshop: WorkshopApi
 };
 
 export const responseErrorHandler = (error, toastElement) => {
