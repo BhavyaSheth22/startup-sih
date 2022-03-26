@@ -6,6 +6,34 @@ const abi = [
 	{
 		inputs: [
 			{
+				internalType: "uint256",
+				name: "daoId",
+				type: "uint256",
+			},
+			{
+				internalType: "string",
+				name: "projectName",
+				type: "string",
+			},
+			{
+				internalType: "string",
+				name: "projectDesc",
+				type: "string",
+			},
+			{
+				internalType: "string[]",
+				name: "optionsList",
+				type: "string[]",
+			},
+		],
+		name: "addProject",
+		outputs: [],
+		stateMutability: "nonpayable",
+		type: "function",
+	},
+	{
+		inputs: [
+			{
 				internalType: "string",
 				name: "daoName",
 				type: "string",
@@ -22,13 +50,7 @@ const abi = [
 			},
 		],
 		name: "createDao",
-		outputs: [
-			{
-				internalType: "uint256",
-				name: "",
-				type: "uint256",
-			},
-		],
+		outputs: [],
 		stateMutability: "nonpayable",
 		type: "function",
 	},
@@ -43,14 +65,50 @@ const abi = [
 			{
 				indexed: false,
 				internalType: "string",
-				name: "daoName",
+				name: "id",
 				type: "string",
 			},
 			{
 				indexed: false,
+				internalType: "uint256",
+				name: "daoId",
+				type: "uint256",
+			},
+		],
+		name: "daoCreated",
+		type: "event",
+	},
+	{
+		inputs: [
+			{
+				internalType: "uint256",
+				name: "daoId",
+				type: "uint256",
+			},
+			{
 				internalType: "string",
-				name: "daoDesc",
+				name: "id",
 				type: "string",
+			},
+			{
+				internalType: "uint256",
+				name: "equityPercent",
+				type: "uint256",
+			},
+		],
+		name: "inviteParticipant",
+		outputs: [],
+		stateMutability: "nonpayable",
+		type: "function",
+	},
+	{
+		anonymous: false,
+		inputs: [
+			{
+				indexed: false,
+				internalType: "uint256",
+				name: "daoId",
+				type: "uint256",
 			},
 			{
 				indexed: false,
@@ -60,12 +118,108 @@ const abi = [
 			},
 			{
 				indexed: false,
-				internalType: "address",
-				name: "owner",
-				type: "address",
+				internalType: "uint256",
+				name: "equityPercent",
+				type: "uint256",
 			},
 		],
-		name: "daoCreated",
+		name: "participantAdded",
+		type: "event",
+	},
+	{
+		anonymous: false,
+		inputs: [
+			{
+				indexed: false,
+				internalType: "uint256",
+				name: "daoId",
+				type: "uint256",
+			},
+			{
+				indexed: false,
+				internalType: "string",
+				name: "projectName",
+				type: "string",
+			},
+			{
+				indexed: false,
+				internalType: "string",
+				name: "projectDesc",
+				type: "string",
+			},
+			{
+				indexed: false,
+				internalType: "string[]",
+				name: "options",
+				type: "string[]",
+			},
+			{
+				indexed: false,
+				internalType: "uint256",
+				name: "projectId",
+				type: "uint256",
+			},
+		],
+		name: "projectAdded",
+		type: "event",
+	},
+	{
+		inputs: [
+			{
+				internalType: "uint256",
+				name: "daoId",
+				type: "uint256",
+			},
+			{
+				internalType: "uint256",
+				name: "projectId",
+				type: "uint256",
+			},
+			{
+				internalType: "string",
+				name: "option",
+				type: "string",
+			},
+			{
+				internalType: "string",
+				name: "id",
+				type: "string",
+			},
+		],
+		name: "vote",
+		outputs: [],
+		stateMutability: "nonpayable",
+		type: "function",
+	},
+	{
+		anonymous: false,
+		inputs: [
+			{
+				indexed: false,
+				internalType: "uint256",
+				name: "daoId",
+				type: "uint256",
+			},
+			{
+				indexed: false,
+				internalType: "uint256",
+				name: "projectId",
+				type: "uint256",
+			},
+			{
+				indexed: false,
+				internalType: "string",
+				name: "option",
+				type: "string",
+			},
+			{
+				indexed: false,
+				internalType: "string",
+				name: "id",
+				type: "string",
+			},
+		],
+		name: "voted",
 		type: "event",
 	},
 ];

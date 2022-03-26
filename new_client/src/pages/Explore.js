@@ -1,13 +1,13 @@
 import { Grid } from "@chakra-ui/react";
 import React, { useEffect } from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar.js";
 import RightSidebar from "../components/RightSidebar";
 import Feed from "../components/Feed";
 import LeftSidebar from "../components/LeftSidebar";
 
 const Explore = () => {
   useEffect(() => {
-    document.title = "OnlyUwU - Explore";
+    document.title = "Bharatpreneur - Explore";
   }, []);
   return (
     <div>

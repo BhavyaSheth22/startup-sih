@@ -1,7 +1,7 @@
 import { Grid,Heading, VStack, StackDivider } from "@chakra-ui/react";
 import RightSidebar from "../components/RightSidebar";
-import Navbar from "../components/Navbar.js";
-import Card from "../components/workshopCards";
+import Navbar from "../components/Navbar";
+import Card from "../components/UserCard";
 
 const Workshop = () => {
     return (
@@ -18,7 +18,7 @@ const Workshop = () => {
         divider={<StackDivider borderColor='gray.200' />}
         spacing={4}
         align='stretch'
-        ><Heading>Explore Workshops</Heading>
+        ><Heading>Connect with Investors</Heading>
 
         <Grid
         templateColumns='repeat(3, 1fr)' gap={3}

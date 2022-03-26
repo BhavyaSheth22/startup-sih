@@ -8,84 +8,98 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { BsImageFill } from "react-icons/bs";
+import Api, { responseErrorHandler } from "../utils/Api/Api";
+import { toast } from "react-toastify";
+import { getUserId } from "../utils/jwtUtil";
 
 const CreateComponent = () => {
-  const [caption, setCaption] = useState("");
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
   const [image, setImage] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const uploadImage = (e) => {
-    //@ts-ignore
-    setImageUrl(URL.createObjectURL(e?.target?.files[0]));
-  };
-  const toast = useToast();
+  const userId = getUserId();
+  // const toast = useToast();
+
+  const createPost = async()=>{
+    if (title.length < 3) {
+			return toast.error("Invalid Title");
+		}
+		if (text.length < 3) {
+			return toast.error("Invalid Description");
+		}
+    if (image.length < 3) {
+			return toast.error("Invalid URL");
+		}
+		
+		const toastElement = toast.loading("Creating Post");
+
+		try {
+			const response = await Api.post.createPost({
+				title,text,image,userId
+			});
+      console.log(response);
+			toast.update(toastElement, {
+				render: "Post Created Successfully",
+				type: "success",
+				isLoading: false,
+				autoClose: true,
+			});
+		} catch (error) {
+			responseErrorHandler(error, toastElement);
+		}
+  }
+
   return (
     <Flex flexDirection="column" gap="2rem" width="100%" height="max-content">
-      <Heading as="h4" size="md">
-        ** Both image and caption are required and you have to complete the
-        validation to create a post so dont be an asshole and no need to dm me
-        on discord that its not working **
-      </Heading>
       <Flex flexDirection="column" gap="0.4rem" width="100%">
-        <Input
+       <Input
           variant="filled"
-          placeholder="Caption"
+          placeholder="Title"
           onChange={(e) => {
-            setCaption(e.target.value);
+            setTitle(e.target.value);
           }}
-          value={caption}
+          value={title}
         />
-        {caption.length >= 5 && caption.length <= 100 ? (
+        {title.length >= 5 && title.length <= 100 ? (
           ""
         ) : (
           <Heading as="h4" size="sm" color="gray.500">
-            Caption must be between 5 to 100 letters
+            Title must be between 5 to 100 letters
+          </Heading>
+        )}
+        <Input
+          variant="filled"
+          placeholder="Description"
+          onChange={(e) => {
+            setText(e.target.value);
+          }}
+          value={text}
+        />
+        {text.length >= 5 && text.length <= 100 ? (
+          ""
+        ) : (
+          <Heading as="h4" size="sm" color="gray.500">
+          description must be between 5 to 100 letters
           </Heading>
         )}
       </Flex>
       <Flex flexDirection="column" gap="0.4rem" width="100%">
-        <input
-          type="file"
-          accept="image/*"
-          placeholder="Select post image"
-          onChange={uploadImage}
-        />
-        {imageUrl !== "" ? (
-          <Image src={imageUrl} alt="" width="100%" />
-        ) : (
-          <>
-            <Flex alignItems="center" gap="1rem">
-              <BsImageFill size="50%" />
-              <Heading as="h4" size="md">
-                Select image idiot
-              </Heading>
-            </Flex>
-            <Heading as="h4" size="sm" color="gray.500">
-              Image is required
-            </Heading>
-          </>
-        )}
-      </Flex>
-      {caption.length >= 5 && caption.length <= 100 && imageUrl !== "" ? (
-        <Button
-          colorScheme="purple"
-          marginBottom="1rem"
-          onClick={() => {
-            toast({
-              title: "Not implemented yet.",
-              description: "Painman working on it so plz be patient.",
-              status: "warning",
-              duration: 6900,
-              isClosable: true,
-            });
+      <Input
+          variant="filled"
+          placeholder="Set Image"
+          onChange={(e) => {
+            setImage(e.target.value);
           }}
-        >
-          Create post
-        </Button>
-      ) : (
-        <Button colorScheme="purple" marginBottom="1rem" disabled>
-          Create post
-        </Button>
-      )}
+          value={image}
+        />
+      </Flex>
+      <Button
+        mt={1}
+              w={'full'}
+              colorScheme="purple"
+              rounded={'xl'}
+              boxShadow={'0 5px 20px 0px rgb(72 187 120 / 43%)'}
+              onClick={()=>{ createPost()}}
+      >Create Post</Button>
     </Flex>
   );
 };

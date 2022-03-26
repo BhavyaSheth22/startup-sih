@@ -24,11 +24,12 @@ const VideoCall = React.lazy(() => import("./pages/VideoCall"));
 const Details= React.lazy(() => import("./pages/Details"));
 const Workshop= React.lazy(() => import("./pages/exploreWorkshops"));
 const Scheme= React.lazy(() => import("./pages/exploreSchemes"));
+const Investors = React.lazy(() => import("./pages/FindInvestors"));
 
 const Token = React.lazy(() => import("./pages/Token"));
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 const Assistance = React.lazy(() => import("./pages/Assistance"));
-const NFT = React.lazy(() => import("./pages/NFT"));
+
 const Analytics = React.lazy(() => import("./pages/Analytics"));
 
 const App = () => {
@@ -48,10 +49,10 @@ const App = () => {
 		<Router>
 				<div className="App" style={{ background: "white" }}>
 			
-				{/* <Header
+				<Header
 					isAuthenticated={isAuthenticated}
 					setIsAuthenticated={setIsAuthenticated}
-				/> */}
+				/>
 		
 				<Suspense fallback={<Loader />}>
 					<Routes>
@@ -95,13 +96,13 @@ const App = () => {
 								isAuthenticated ? <CreateCrowdfunding /> : <Navigate to="/" />
 							}
 						/>
-									<Route path="/feed" element={<Feed />} />
-		
+						<Route path="/feed" element={<Feed />} />
 						<Route path="/profile/:uuid" element={<Profile />} />
 						<Route path="/create" element={<Create />} />
 						<Route path="/videoCall" element={<VideoCall />} />
 						<Route path="/details" element={<Details/>} />
 						<Route path="/workshops" element={<Workshop/>} />
+						<Route path="/investors" element={<Investors/>} />
 						<Route
 							path="/UserCrowdfunding"
 							exact
@@ -113,10 +114,7 @@ const App = () => {
 							path="/Crowdfunding/:tokenID"
 							element={isAuthenticated ? <Token /> : <Navigate to="/" />}
 						/>
-						<Route
-							path="/nft/:nftId"
-							element={isAuthenticated ? <NFT /> : <Navigate to="/" />}
-						/>
+					
 						<Route
 							path="/assistance"
 							element={isAuthenticated ? <Assistance /> : <Navigate to="/" />}

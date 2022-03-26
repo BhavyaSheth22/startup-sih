@@ -2,13 +2,10 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 
-const user = new mongoose.Schema({
+const incubator = new mongoose.Schema({
   name: {
     type: String,
     required: true
-  },
-  role: {
-    type: String
   },
   email: {
     type: String,
@@ -22,29 +19,34 @@ const user = new mongoose.Schema({
     required: true,
     select: false
   },
-  daoAddress:{
-    type:String
+  workshops: {
+    type: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "workshop"
+      }
+    ],
+    default: []
   },
- description: {
+  description: {
     type: String,
     required: true
-  },
-  
+  }
 });
 
-user.pre("save", async function (next) {
+incubator.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
   this.password = await bcrypt.hash(this.password, 12);
   next();
 });
 
-user.methods.correctPassword = async function (
+incubator.methods.correctPassword = async function (
   candidatePassword,
   userPassword
 ) {
   return await bcrypt.compare(candidatePassword, userPassword);
 };
 
-const User = mongoose.model("User", user);
+const Incubator = mongoose.model("Incubator", incubator);
 
-module.exports = User;
+module.exports = Incubator;

@@ -1,62 +1,8 @@
-import { useState } from "react";
 import React from "react";
-import Api, { responseErrorHandler } from "../utils/Api/Api";
-import { toast } from "react-toastify";
-import validator from "validator";
 import Popup from "../components/Popup/Popup";
-import Input from "../components/Input";
-import Radio from "../components/Radio";
-
-const InvestModal = (close) => {
-	const [price, setPrice] = useState(0);
-	const [equityPercentage, setEquityPercentage] = useState("");
-	
-	const submit = async () => {
-		if (price < 1) {
-			return toast.error("Enter an amount");
-		}
-		if (equityPercentage <= 0) {
-			return toast.error("You should be giving some equity :(");
-		}
-		if (equityPercentage >= 100) {
-			return toast.error("100% equity??? Do you want to sell yah company???");
-		}
-		const toastElement = toast.loading(
-			"Investing..."
-		);
-		try {
-			toast.update(toastElement, {
-				render: "Invested Successfully",
-				type: "success",
-				isLoading: false,
-				autoClose: true,
-			});
-			// const { token } = response.data;
-			// const { user } = response.data;
-			// console.log(user);
-			// localStorage.setItem("token", token);
-			// localStorage.setItem("user", JSON.stringify(user));
-			// setIsAuthenticated(true);
-			// localStorage.setItem("userType", userType);
-			return close();
-		} catch (error) {
-			responseErrorHandler(error, toastElement);
-		}
-	};
-
-	return (
-		<div className="bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 modal">
-			<Input label="Price" type="text" setter={setPrice} />
-			<Input label="Equity Percentage" type="text" setter={setEquityPercentage} />
-			<button
-				onClick={submit}
-				className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-			>
-				Invest
-			</button>
-		</div>
-	);
-};
+import InvestModal from "../components/InvestModal";
+import GiveEquityModal from "../components/GiveEquityModal";
+import AddProjectModal from "../components/AddProjectModal";
 
 const Invest = () => {
 	return (
@@ -67,6 +13,32 @@ const Invest = () => {
 				</button>
 			}
 			Modal={InvestModal}
+		/>
+	);
+};
+
+const GiveEquity = () => {
+	return (
+		<Popup
+			Button={
+				<button className={"text-white bg-indigo-600 mb-5 border-0 py-2 px-10 focus:outline-none hover:bg-indigo-700 rounded text-lg"}>
+					Give Equity
+				</button>
+			}
+			Modal={GiveEquityModal}
+		/>
+	);
+};
+
+const AddProject = () => {
+	return (
+		<Popup
+			Button={
+				<button className={"text-white bg-indigo-600 border-0 py-2 px-10 focus:outline-none hover:bg-indigo-700 rounded text-lg"}>
+					Add Project
+				</button>
+			}
+			Modal={AddProjectModal}
 		/>
 	);
 };
@@ -98,12 +70,15 @@ export default function CompanyProfile() {
             </p>
         </li>
         <li class="w-1/5">
-            <div class="text-center mb-4 opacity-90">
+            <div class="text-center mb-2 opacity-90">
                 <a href="#" class="block relative">
                     <img alt="profil" src="https://bit.ly/3IFW1Cf" class="mx-auto object-cover rounded-lg h-60 w-60 "/>
                 </a>
                 <br/><br/>
-            <Invest/>
+            {/* <Invest/> */}
+            <GiveEquity/>
+            <br/>
+            <AddProject/>
             </div>
         </li>
     </ul>

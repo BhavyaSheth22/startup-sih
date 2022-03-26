@@ -1,12 +1,12 @@
 import { Grid } from "@chakra-ui/react";
-import RightSidebar from "../components/RightSidebar";
-import Navbar from "../components/Navbar";
-import Details from "../components/Details";
+import RightSidebar from "./RightSidebar";
+import Navbar from "./Navbar.js";
+import Details from "./Details";
 import React, { useEffect } from "react";
 
 const Profile = () => {
     useEffect(() => {
-      document.title = "OnlyUwU - Idiot";
+      document.title = "Bharatpreneur - Idiot";
     }, []);
     return (
       <div>

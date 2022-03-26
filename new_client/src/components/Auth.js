@@ -17,6 +17,7 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn, userType }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [description, setDescription] = useState("");
+	const [role, setRole] = useState("Entrepreneur");
 
 	const createUser = async (uid, name) => {
 		const res = await axios.post(
@@ -50,20 +51,27 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn, userType }) => {
 			const response = signIn
 				? await Api.auth.signIn({ email, password, userType })
 				: userType == "company"
-				? await Api.auth.signUp({
+				? await Api.auth.companySignUp({
 						email,
 						password,
 						name,
 						description,
-						userType,
 				  })
-				: await Api.auth.signUp({
+				: userType == "user"
+				? await Api.auth.userSignUp({
 						email,
 						password,
 						name,
 						description,
-						userType,
+						role,
+				  })
+				: await Api.auth.incubatorSignUp({
+						email,
+						password,
+						name,
+						description,
 				  });
+
 			toast.update(toastElement, {
 				render: signIn
 					? "Logged In Successfully"
@@ -101,12 +109,35 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn, userType }) => {
 		<div className="bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 modal">
 			<h2 className="text-gray-900 text-lg font-medium title-font mb-5">
 				{signIn ? "Sign In" : "Register"} As A{" "}
-				{userType == "company" ? "Company" : "User"}
+				{userType == "company"
+					? "Company"
+					: userType == "user"
+					? "User"
+					: "Incubator"}
 			</h2>
 			{!signIn && <Input label="Full Name" name="name" setter={setName} />}
 			<Input label="Email" type="email" setter={setEmail} />
 			{!signIn && (
 				<Input label="Description" name="description" setter={setDescription} />
+			)}
+			{userType === "user" && (
+				<Radio
+					label="Role"
+					value={role}
+					setter={setRole}
+					options={[
+						{
+							label: "Entrepreneur",
+							value: "Entrepreneur",
+							name: "role",
+						},
+						{
+							label: "Investor",
+							value: "Investor",
+							name: "role",
+						},
+					]}
+				/>
 			)}
 			<Input label="Password" type="password" setter={setPassword} />
 			<button
@@ -136,7 +167,12 @@ const Auth = ({
 		<Popup
 			Button={
 				<button className={className}>
-					LogIn As A {userType == "company" ? "Company" : "User"}
+					Explore Role of{" "}
+					{userType == "company"
+						? "Company"
+						: userType == "user"
+						? "User"
+						: "Incubator"}
 				</button>
 			}
 			Modal={AuthModal}
