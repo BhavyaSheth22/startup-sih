@@ -12,10 +12,16 @@
 
 
 ## Description
-To develop a one stop platform for budding entrepreneurs for Overall Support. For Counselling/ Guidance, Idea validation, connection with Incubators, connection with industry mentors ideally who run businesses, for project or Start-up related discussions. Also help to connect to interested private sector (individuals, organization) willing to provide funding support as well as invest in these enterprises.
+To develop a one stop platform for budding entrepreneurs for Overall Support. 
+* For Counselling/ Guidance, Idea validation
+* Connection with Incubators
+* Connection with industry mentors ideally who run businesses, For project or Start-up related discussions. 
+* Help to connect to interested private sector (individuals, organization) willing to provide funding support as well as invest in these enterprises.
+* Platform facilitates a pool of investors investing in a company like a Hedge Fund and getting periodic dividends as a benefit of the holding equity of the company. 
+* Information about Government Schemes
 
 ## Links
-* GitHub Repo link: [Link to repository](https://github.com/your-repo-link)
+* GitHub Repo link: [Link to repository](https://github.com/BhavyaSheth22/startup-sih)
 
 ## Technology stack
 
@@ -33,8 +39,18 @@ To develop a one stop platform for budding entrepreneurs for Overall Support. Fo
 
 ## Future scope
 > Blockchain Based DAO
+> Recommending gov schemes on the basis of the company's type and posts.
+> Personalised recommended news
+> Collaboration of projects among the companies
 
 ## Screenshots
 Add a few screenshots for parts of the project completed till now to give the viewer a quick idea of what your project looks like. After all, a picture speaks a thousand words.
 
-![Screenshot alt text](https://img.freepik.com/free-photo/blue-purple-technology-circuit_73426-205.jpg "Here is a screenshot")
+![Screenshot alt text](https://github.com/BhavyaSheth22/startup-sih/blob/main/assets/Detail-1.JPG)
+![Screenshot alt text](https://github.com/BhavyaSheth22/startup-sih/blob/main/assets/Detail-5.jpeg)
+![Screenshot alt text](https://github.com/BhavyaSheth22/startup-sih/blob/main/assets/Detail-4.jpeg)
+![Screenshot alt text](https://github.com/BhavyaSheth22/startup-sih/blob/main/assets/Detail-2.JPG)
+![Screenshot alt text](https://github.com/BhavyaSheth22/startup-sih/blob/main/assets/Detail-3.jpeg)
+
+
+
