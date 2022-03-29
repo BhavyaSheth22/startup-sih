@@ -44,7 +44,6 @@ To develop a one stop platform for budding entrepreneurs for Overall Support.
 > Collaboration of projects among the companies
 
 ## Screenshots
-Add a few screenshots for parts of the project completed till now to give the viewer a quick idea of what your project looks like. After all, a picture speaks a thousand words.
 
 ![Screenshot alt text](https://github.com/BhavyaSheth22/startup-sih/blob/main/assets/Detail-1.JPG)
 ![Screenshot alt text](https://github.com/BhavyaSheth22/startup-sih/blob/main/assets/Detail-5.jpeg)
